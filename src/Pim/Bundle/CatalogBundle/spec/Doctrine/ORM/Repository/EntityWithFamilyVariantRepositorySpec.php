@@ -37,6 +37,7 @@ class EntityWithFamilyVariantRepositorySpec extends ObjectBehavior
         VariantProductInterface $variantProduct,
         ProductModelInterface $productModel
     ) {
+        $variantProduct->isVariant()->willReturn(true);
         $variantProduct->getFamilyVariant()->willReturn(null);
         $productModel->getFamilyVariant()->willReturn(null);
         $productModel->isRootProductModel()->shouldNotBeCalled();
@@ -90,6 +91,7 @@ class EntityWithFamilyVariantRepositorySpec extends ObjectBehavior
         VariantProductInterface $sibling1,
         VariantProductInterface $sibling2
     ) {
+        $variantProduct->isVariant()->willReturn(true);
         $variantProduct->getFamilyVariant()->willReturn($familyVariant);
 
         $variantProductRepository->findSiblingsProducts($variantProduct)->willReturn([$sibling1, $sibling2]);
