@@ -4,7 +4,6 @@ namespace spec\Pim\Component\Catalog\Job;
 
 use Akeneo\Component\Batch\Job\JobParameters;
 use Akeneo\Component\Batch\Model\StepExecution;
-use Akeneo\Component\StorageUtils\Detacher\ObjectDetacherInterface;
 use Akeneo\Component\StorageUtils\Saver\SaverInterface;
 use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityRepository;
@@ -12,7 +11,7 @@ use PhpSpec\ObjectBehavior;
 use Pim\Component\Catalog\EntityWithFamilyVariant\KeepOnlyValuesForVariation;
 use Pim\Component\Catalog\Model\FamilyVariantInterface;
 use Pim\Component\Catalog\Model\ProductModelInterface;
-use Pim\Component\Catalog\Model\VariantProductInterface;
+use Pim\Component\Catalog\Model\ProductInterface;
 use Pim\Component\Catalog\Repository\ProductModelRepositoryInterface;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -50,7 +49,7 @@ class ComputeFamilyVariantStructureChangesTaskletSpec extends ObjectBehavior
         StepExecution $stepExecution,
         JobParameters $jobParameters,
         FamilyVariantInterface $familyVariant,
-        VariantProductInterface $variantProduct,
+        ProductInterface $variantProduct,
         ProductModelInterface $rootProductModel,
         ConstraintViolationListInterface $variantProductViolations,
         ConstraintViolationListInterface $rootProductModelViolations
@@ -94,7 +93,7 @@ class ComputeFamilyVariantStructureChangesTaskletSpec extends ObjectBehavior
         StepExecution $stepExecution,
         JobParameters $jobParameters,
         FamilyVariantInterface $familyVariant,
-        VariantProductInterface $variantProduct,
+        ProductInterface $variantProduct,
         ProductModelInterface $subProductModel,
         ProductModelInterface $rootProductModel,
         ConstraintViolationListInterface $variantProductViolations,
@@ -148,7 +147,7 @@ class ComputeFamilyVariantStructureChangesTaskletSpec extends ObjectBehavior
         StepExecution $stepExecution,
         JobParameters $jobParameters,
         FamilyVariantInterface $familyVariant,
-        VariantProductInterface $variantProduct,
+        ProductInterface $variantProduct,
         ConstraintViolationListInterface $variantProductViolations
     ) {
         $stepExecution->getJobParameters()->willReturn($jobParameters);
