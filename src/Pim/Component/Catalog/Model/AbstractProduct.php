@@ -87,6 +87,10 @@ abstract class AbstractProduct implements ProductInterface
 
     /** @var FamilyVariantInterface */
     protected $familyVariant;
+
+    /** @var string */
+    protected $type;
+
     /**
      * Constructor
      */
@@ -98,6 +102,7 @@ abstract class AbstractProduct implements ProductInterface
         $this->groups = new ArrayCollection();
         $this->associations = new ArrayCollection();
         $this->uniqueData = new ArrayCollection();
+        $this->type = 'product';
     }
 
     /**
