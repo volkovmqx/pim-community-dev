@@ -26,67 +26,67 @@ use Pim\Component\Catalog\Model\ProductModelInterface;
  *
  * And here are the products and product models linked to those family variants:
  *
- * |--------------------------|------------------------------------------------------------------------------------------------------------------------------------|
- * | Id                       | Label                        | Color  | Size | Material  | Completeness | Complete products | Family      | Family variant         |
- * |--------------------------|------------------------------|--------|------|-----------|--------------|-------------------|-------------|------------------------|
- * | product_model_1          | model-tshirt                 |        |      |           |              | 7/12              | clothing    | clothing_color_size    |
- * | product_model_2          | model-tshirt-grey            | grey   |      | Cotton    |              | 4/4               | clothing    | clothing_color_size    |
- * | product_1                | tshirt-grey-s                | grey   | S    | Cotton    | 100%         |                   | clothing    | clothing_color_size    |
- * | product_2                | tshirt-grey-m                | grey   | M    | Cotton    | 100%         |                   | clothing    | clothing_color_size    |
- * | product_3                | tshirt-grey-l                | grey   | L    | Cotton    | 100%         |                   | clothing    | clothing_color_size    |
- * | product_4                | tshirt-grey-xl               | grey   | XL   | Cotton    | 100%         |                   | clothing    | clothing_color_size    |
- * | product_model_3          | model-tshirt-blue            | blue   |      | Polyester |              | 3/4               | clothing    | clothing_color_size    |
- * | product_5                | tshirt-blue-s                | blue   | S    | Polyester | 80%          |                   | clothing    | clothing_color_size    |
- * | product_6                | tshirt-blue-m                | blue   | M    | Polyester | 100%         |                   | clothing    | clothing_color_size    |
- * | product_7                | tshirt-blue-l                | blue   | L    | Polyester | 100%         |                   | clothing    | clothing_color_size    |
- * | product_8                | tshirt-blue-xl               | blue   | XL   | Polyester | 100%         |                   | clothing    | clothing_color_size    |
- * | product_model_4          | model-tshirt-red             | red    |      | Cotton    |              | 0/4               | clothing    | clothing_color_size    |
- * | product_9                | tshirt-red-s                 | red    | S    | Cotton    | 70%          |                   | clothing    | clothing_color_size    |
- * | product_10               | tshirt-red-m                 | red    | M    | Cotton    | 70%          |                   | clothing    | clothing_color_size    |
- * | product_11               | tshirt-red-l                 | red    | L    | Cotton    | 60%          |                   | clothing    | clothing_color_size    |
- * | product_12               | tshirt-red-xl                | red    | XL   | Cotton    | 80%          |                   | clothing    | clothing_color_size    |
- * |--------------------------|------------------------------------------------------------------------------------------------------------------------------------|
- * | product_model_5          | model-tshirt-unique-color    | red    |      | Cotton    |              | 2/4               | clothing    | clothing_size          |
- * | product_13               | tshirt-unique-color-s        | red    | S    | Cotton    | 100%         |                   | clothing    | clothing_size          |
- * | product_14               | tshirt-unique-color-m        | red    | M    | Cotton    | 100%         |                   | clothing    | clothing_size          |
- * | product_15               | tshirt-unique-color-l        | red    | L    | Cotton    | 50%          |                   | clothing    | clothing_size          |
- * | product_16               | tshirt-unique-color-xl       | red    | XL   | Cotton    | 60%          |                   | clothing    | clothing_size          |
- * |--------------------------|------------------------------------------------------------------------------------------------------------------------------------|
- * | product_17               | watch                        | blue   |      | Metal     | 0%           |                   | clothing    | clothing_size          |
- * |--------------------------|------------------------------------------------------------------------------------------------------------------------------------|
- * | product_model_6          | model-hat                    | grey   |      | Wool      |              | 2/2               | accessories | accessories_size       |
- * | product_18               | hat-m                        | grey   | M    | Wool      | 100%         |                   | accessories | accessories_size       |
- * | product_19               | hat-l                        | grey   | L    | Wool      | 100%         |                   | accessories | accessories_size       |
- * |--------------------------|------------------------------------------------------------------------------------------------------------------------------------|
- * | product_model_7          | model-tshirt-unique-size     |        | U    | Cotton    |              | 1/3               | clothing    | clothing_color         |
- * | product_20               | tshirt-unique-size-blue      | blue   | U    | Cotton    | 100%         |                   | clothing    | clothing_color         |
- * | product_21               | tshirt-unique-size-red       | red    | U    | Cotton    | 70%          |                   | clothing    | clothing_color         |
- * | product_22               | tshirt-unique-size-yellow    | yellow | U    | Cotton    | 50%          |                   | clothing    | clothing_color         |
- * |--------------------------|------------------------------------------------------------------------------------------------------------------------------------|
- * | product_model_8          | model-running-shoes          |        |      | Leather   |              | 4/9               | shoes       | shoes_size_color       |
- * | product_model_9          | model-running-shoes-s        |        | S    | Leather   |              | 3/3               | shoes       | shoes_size_color       |
- * | product_23               | running-shoes-s-white        | white  | S    | Leather   | 100%         |                   | shoes       | shoes_size_color       |
- * | product_24               | running-shoes-s-blue         | blue   | S    | Leather   | 100%         |                   | shoes       | shoes_size_color       |
- * | product_25               | running-shoes-s-red          | red    | S    | Leather   | 100%         |                   | shoes       | shoes_size_color       |
- * | product_model_10         | model-running-shoes-m        |        | M    | Leather   |              | 0/3               | shoes       | shoes_size_color       |
- * | product_26               | running-shoes-m-white        | white  | M    | Leather   | 0%           |                   | shoes       | shoes_size_color       |
- * | product_27               | running-shoes-m-blue         | blue   | M    | Leather   | 0%           |                   | shoes       | shoes_size_color       |
- * | product_28               | running-shoes-m-red          | red    | M    | Leather   | 0%           |                   | shoes       | shoes_size_color       |
- * | product_model_11         | model-running-shoes-l        |        | L    | Leather   |              | 1/3               | shoes       | shoes_size_color       |
- * | product_29               | running-shoes-l-white        | white  | L    | Leather   | 60%          |                   | shoes       | shoes_size_color       |
- * | product_30               | running-shoes-l-blue         | blue   | L    | Leather   | 70%          |                   | shoes       | shoes_size_color       |
- * | product_31               | running-shoes-l-red          | red    | L    | Leather   | 100%         |                   | shoes       | shoes_size_color       |
- * |--------------------------|------------------------------------------------------------------------------------------------------------------------------------|
- * | product_model_12         | model-biker-jacket           | white  |      |           |              | 0/6               | clothing    | clothing_material_size |
- * | product_model_13         | model-biker-jacket-leather   | white  |      | Leather   |              | 0/3               | clothing    | clothing_material_size |
- * | product_32               | biker-jacket-leather-s       | white  | S    | Leather   | 0%           |                   | clothing    | clothing_material_size |
- * | product_33               | biker-jacket-leather-m       | white  | M    | Leather   | 0%           |                   | clothing    | clothing_material_size |
- * | product_34               | biker-jacket-leather-l       | white  | L    | Leather   | 0%           |                   | clothing    | clothing_material_size |
- * | product_model_14         | model-biker-jacket-polyester | white  |      | Polyester |              | 0/3               | clothing    | clothing_material_size |
- * | product_35               | biker-jacket-polyester-s     | white  | S    | Polyester | 19%          |                   | clothing    | clothing_material_size |
- * | product_36               | biker-jacket-polyester-m     | white  | M    | Polyester | 30%          |                   | clothing    | clothing_material_size |
- * | product_37               | biker-jacket-polyester-l     | white  | L    | Polyester | 20%          |                   | clothing    | clothing_material_size |
- * -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+ * | Id                       | Label                        | categories       | Color  | Size | Material  | Completeness | Complete products | Family      | Family variant         |
+ * |--------------------------|------------------------------|------------------|--------|------|-----------|--------------|-------------------|-------------|------------------------|
+ * | product_model_1          | model-tshirt                 |                  |        |      |           |              | 7/12              | clothing    | clothing_color_size    |
+ * | product_model_2          | model-tshirt-grey            |                  | grey   |      | Cotton    |              | 4/4               | clothing    | clothing_color_size    |
+ * | product_1                | tshirt-grey-s                |                  | grey   | S    | Cotton    | 100%         |                   | clothing    | clothing_color_size    |
+ * | product_2                | tshirt-grey-m                |                  | grey   | M    | Cotton    | 100%         |                   | clothing    | clothing_color_size    |
+ * | product_3                | tshirt-grey-l                |                  | grey   | L    | Cotton    | 100%         |                   | clothing    | clothing_color_size    |
+ * | product_4                | tshirt-grey-xl               |                  | grey   | XL   | Cotton    | 100%         |                   | clothing    | clothing_color_size    |
+ * | product_model_3          | model-tshirt-blue            |                  | blue   |      | Polyester |              | 3/4               | clothing    | clothing_color_size    |
+ * | product_5                | tshirt-blue-s                |                  | blue   | S    | Polyester | 80%          |                   | clothing    | clothing_color_size    |
+ * | product_6                | tshirt-blue-m                |                  | blue   | M    | Polyester | 100%         |                   | clothing    | clothing_color_size    |
+ * | product_7                | tshirt-blue-l                |                  | blue   | L    | Polyester | 100%         |                   | clothing    | clothing_color_size    |
+ * | product_8                | tshirt-blue-xl               |                  | blue   | XL   | Polyester | 100%         |                   | clothing    | clothing_color_size    |
+ * | product_model_4          | model-tshirt-red             |                  | red    |      | Cotton    |              | 0/4               | clothing    | clothing_color_size    |
+ * | product_9                | tshirt-red-s                 |                  | red    | S    | Cotton    | 70%          |                   | clothing    | clothing_color_size    |
+ * | product_10               | tshirt-red-m                 |                  | red    | M    | Cotton    | 70%          |                   | clothing    | clothing_color_size    |
+ * | product_11               | tshirt-red-l                 |                  | red    | L    | Cotton    | 60%          |                   | clothing    | clothing_color_size    |
+ * | product_12               | tshirt-red-xl                |                  | red    | XL   | Cotton    | 80%          |                   | clothing    | clothing_color_size    |
+ * |--------------------------|------------------------------|------------------|-----------------------------------------------------------------------------------------------------|
+ * | product_model_5          | model-tshirt-unique-color    |                  | red    |      | Cotton    |              | 2/4               | clothing    | clothing_size          |
+ * | product_13               | tshirt-unique-color-s        |                  | red    | S    | Cotton    | 100%         |                   | clothing    | clothing_size          |
+ * | product_14               | tshirt-unique-color-m        |                  | red    | M    | Cotton    | 100%         |                   | clothing    | clothing_size          |
+ * | product_15               | tshirt-unique-color-l        |                  | red    | L    | Cotton    | 50%          |                   | clothing    | clothing_size          |
+ * | product_16               | tshirt-unique-color-xl       |                  | red    | XL   | Cotton    | 60%          |                   | clothing    | clothing_size          |
+ * |--------------------------|------------------------------|------------------|-----------------------------------------------------------------------------------------------------|
+ * | product_17               | watch                        |                  | blue   |      | Metal     | 0%           |                   | clothing    | clothing_size          |
+ * |--------------------------|------------------------------|------------------|-----------------------------------------------------------------------------------------------------|
+ * | product_model_6          | model-hat                    |                  | grey   |      | Wool      |              | 2/2               | accessories | accessories_size       |
+ * | product_18               | hat-m                        |                  | grey   | M    | Wool      | 100%         |                   | accessories | accessories_size       |
+ * | product_19               | hat-l                        |                  | grey   | L    | Wool      | 100%         |                   | accessories | accessories_size       |
+ * |--------------------------|------------------------------|------------------|-----------------------------------------------------------------------------------------------------|
+ * | product_model_7          | model-tshirt-unique-size     |                  |        | U    | Cotton    |              | 1/3               | clothing    | clothing_color         |
+ * | product_20               | tshirt-unique-size-blue      |                  | blue   | U    | Cotton    | 100%         |                   | clothing    | clothing_color         |
+ * | product_21               | tshirt-unique-size-red       |                  | red    | U    | Cotton    | 70%          |                   | clothing    | clothing_color         |
+ * | product_22               | tshirt-unique-size-yellow    |                  | yellow | U    | Cotton    | 50%          |                   | clothing    | clothing_color         |
+ * |--------------------------|------------------------------|------------------|-----------------------------------------------------------------------------------------------------|
+ * | product_model_8          | model-running-shoes          | shoes            |        |      | Leather   |              | 4/9               | shoes       | shoes_size_color       |
+ * | product_model_9          | model-running-shoes-s        | shoes            |        | S    | Leather   |              | 3/3               | shoes       | shoes_size_color       |
+ * | product_23               | running-shoes-s-white        | shoes,men,women  | white  | S    | Leather   | 100%         |                   | shoes       | shoes_size_color       |
+ * | product_24               | running-shoes-s-blue         | shoes,men        | blue   | S    | Leather   | 100%         |                   | shoes       | shoes_size_color       |
+ * | product_25               | running-shoes-s-red          | shoes,women      | red    | S    | Leather   | 100%         |                   | shoes       | shoes_size_color       |
+ * | product_model_10         | model-running-shoes-m        | shoes            |        | M    | Leather   |              | 0/3               | shoes       | shoes_size_color       |
+ * | product_26               | running-shoes-m-white        | shoes,men,women  | white  | M    | Leather   | 0%           |                   | shoes       | shoes_size_color       |
+ * | product_27               | running-shoes-m-blue         | shoes,men        | blue   | M    | Leather   | 0%           |                   | shoes       | shoes_size_color       |
+ * | product_28               | running-shoes-m-red          | shoes,women      | red    | M    | Leather   | 0%           |                   | shoes       | shoes_size_color       |
+ * | product_model_11         | model-running-shoes-l        | shoes            |        | L    | Leather   |              | 1/3               | shoes       | shoes_size_color       |
+ * | product_29               | running-shoes-l-white        | shoes,men,women  | white  | L    | Leather   | 60%          |                   | shoes       | shoes_size_color       |
+ * | product_30               | running-shoes-l-blue         | shoes,men        | blue   | L    | Leather   | 70%          |                   | shoes       | shoes_size_color       |
+ * | product_31               | running-shoes-l-red          | shoes,women      | red    | L    | Leather   | 100%         |                   | shoes       | shoes_size_color       |
+ * |--------------------------|------------------------------|------------------|-----------------------------------------------------------------------------------------------------|
+ * | product_model_12         | model-biker-jacket           |                  | white  |      |           |              | 0/6               | clothing    | clothing_material_size |
+ * | product_model_13         | model-biker-jacket-leather   |                  | white  |      | Leather   |              | 0/3               | clothing    | clothing_material_size |
+ * | product_32               | biker-jacket-leather-s       |                  | white  | S    | Leather   | 0%           |                   | clothing    | clothing_material_size |
+ * | product_33               | biker-jacket-leather-m       |                  | white  | M    | Leather   | 0%           |                   | clothing    | clothing_material_size |
+ * | product_34               | biker-jacket-leather-l       |                  | white  | L    | Leather   | 0%           |                   | clothing    | clothing_material_size |
+ * | product_model_14         | model-biker-jacket-polyester |                  | white  |      | Polyester |              | 0/3               | clothing    | clothing_material_size |
+ * | product_35               | biker-jacket-polyester-s     |                  | white  | S    | Polyester | 19%          |                   | clothing    | clothing_material_size |
+ * | product_36               | biker-jacket-polyester-m     |                  | white  | M    | Polyester | 30%          |                   | clothing    | clothing_material_size |
+ * | product_37               | biker-jacket-polyester-l     |                  | white  | L    | Polyester | 20%          |                   | clothing    | clothing_material_size |
+ * --------------------------------------------------------------------------------------------------------------------------------------------------------------------
  *
  * @author    Julien Janvier <j.janvier@gmail.com>
  * @copyright 2017 Akeneo SAS (http://www.akeneo.com)
@@ -253,6 +253,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'identifier'                => 'model-running-shoes',
                 'document_type'             => ProductModelInterface::class,
                 'level'                     => 2,
+                'categories'                => ['shoes'],
+                'categories_for_this_level' => ['shoes'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -444,6 +446,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'identifier'                => 'model-running-shoes-s',
                 'document_type'             => ProductModelInterface::class,
                 'level'                     => 1,
+                'categories'                => ['shoes'],
+                'categories_for_this_level' => [],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -476,6 +480,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'identifier'                => 'model-running-shoes-m',
                 'document_type'             => ProductModelInterface::class,
                 'level'                     => 1,
+                'categories'                => ['shoes'],
+                'categories_for_this_level' => [],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -508,6 +514,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'identifier'                => 'model-running-shoes-l',
                 'document_type'             => ProductModelInterface::class,
                 'level'                     => 1,
+                'categories'                => ['shoes'],
+                'categories_for_this_level' => [],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -540,6 +548,7 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'identifier'                => 'model-biker-jacket-leather',
                 'document_type'             => ProductModelInterface::class,
                 'level'                     => 1,
+                'categories'                => ['shoes'],
                 'family_variant'            => 'clothing_material_size',
                 'family'                    => [
                     'code'   => 'clothing',
@@ -1737,6 +1746,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'id'                        => 'product_23',
                 'identifier'                => 'running-shoes-s-white',
                 'document_type'             => ProductInterface::class,
+                'categories'                => ['shoes', 'men', 'women'],
+                'categories_for_this_level' => ['men', 'women'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -1778,6 +1789,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'id'                        => 'product_24',
                 'identifier'                => 'running-shoes-s-blue',
                 'document_type'             => ProductInterface::class,
+                'categories'                => ['shoes', 'men'],
+                'categories_for_this_level' => ['men'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -1819,6 +1832,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'id'                        => 'product_25',
                 'identifier'                => 'running-shoes-s-red',
                 'document_type'             => ProductInterface::class,
+                'categories'                => ['shoes', 'women'],
+                'categories_for_this_level' => ['women'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -1860,6 +1875,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'id'                        => 'product_26',
                 'identifier'                => 'running-shoes-m-white',
                 'document_type'             => ProductInterface::class,
+                'categories'                => ['shoes', 'men', 'women'],
+                'categories_for_this_level' => ['men', 'women'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -1901,6 +1918,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'id'                        => 'product_27',
                 'identifier'                => 'running-shoes-m-blue',
                 'document_type'             => ProductInterface::class,
+                'categories'                => ['shoes', 'men'],
+                'categories_for_this_level' => ['men'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -1942,6 +1961,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'id'                        => 'product_28',
                 'identifier'                => 'running-shoes-m-red',
                 'document_type'             => ProductInterface::class,
+                'categories'                => ['shoes', 'women'],
+                'categories_for_this_level' => ['women'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -1983,6 +2004,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'id'                        => 'product_29',
                 'identifier'                => 'running-shoes-l-white',
                 'document_type'             => ProductInterface::class,
+                'categories'                => ['shoes', 'men', 'women'],
+                'categories_for_this_level' => ['men', 'women'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -2024,6 +2047,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'id'                        => 'product_30',
                 'identifier'                => 'running-shoes-l-blue',
                 'document_type'             => ProductInterface::class,
+                'categories'                => ['shoes', 'men'],
+                'categories_for_this_level' => ['men'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -2065,6 +2090,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'id'                        => 'product_31',
                 'identifier'                => 'running-shoes-l-red',
                 'document_type'             => ProductInterface::class,
+                'categories'                => ['shoes', 'women'],
+                'categories_for_this_level' => ['women'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',

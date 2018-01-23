@@ -2,9 +2,6 @@
 
 namespace Pim\Bundle\CatalogBundle\tests\integration\Elasticsearch\IndexConfiguration;
 
-use Pim\Component\Catalog\Model\ProductInterface;
-use Pim\Component\Catalog\Model\ProductModelInterface;
-
 /**
  * Search use cases of products and models in a "smart datagrid way".
  * It returns either products or models depending on where the information is stored.
@@ -616,5 +613,25 @@ class SearchProductsAndModelsIntegration extends AbstractPimCatalogProductModelI
                 'biker-jacket-polyester-l',
             ]
         );
+    }
+
+    public function testCategoryShoes()
+    {
+    }
+
+    public function testCategoryShoesAndSizeS()
+    {
+    }
+
+    public function testCategoryShoesAndColorWhite()
+    {
+    }
+
+    public function testCategoryMen()
+    {
+    }
+
+    public function testCategoryMenAndMaterialLeather()
+    {
     }
 }
