@@ -26,7 +26,7 @@ use Pim\Component\Catalog\Model\ProductModelInterface;
  *
  * And here are the products and product models linked to those family variants:
  *
- * |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+ * |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
  * | Id                       | Label                        | categories       | Color  | Size | Material  | Completeness | Complete products | Family      | Family variant         |
  * |--------------------------|------------------------------|------------------|--------|------|-----------|--------------|-------------------|-------------|------------------------|
  * | product_model_1          | model-tshirt                 |                  |        |      |           |              | 7/12              | clothing    | clothing_color_size    |
@@ -254,7 +254,7 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'document_type'             => ProductModelInterface::class,
                 'level'                     => 2,
                 'categories'                => ['shoes'],
-                'categories_for_this_level' => ['shoes'],
+                'categories_of_parent'      => ['shoes'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',

@@ -33,11 +33,11 @@ class SearchProductsAndModelsIntegration extends AbstractPimCatalogProductModelI
         $query = [
             'query' => [
                 'bool' => [
-                   'must_not' => [
-                       'exists' => [
-                           'field' => 'parent',
-                       ],
-                   ],
+                    'must_not' => [
+                        'exists' => [
+                            'field' => 'parent',
+                        ],
+                    ],
                 ],
             ],
         ];
@@ -617,10 +617,69 @@ class SearchProductsAndModelsIntegration extends AbstractPimCatalogProductModelI
 
     public function testCategoryShoes()
     {
+        $query = [
+            'query' => [
+                'constant_score' => [
+                    'filter' => [
+                        'bool' => [
+                            'filter'   => [
+                                [
+                                    'terms' => [
+                                        'categories' => ['shoes']
+                                    ]
+                                ]
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
+
+        $productsFound = $this->getSearchQueryResults($query);
+
+        $this->assertDocument(
+            $productsFound,
+            [
+                'model-running-shoes',
+            ]
+        );
     }
 
     public function testCategoryShoesAndSizeS()
     {
+        $query = [
+            'query' => [
+                'constant_score' => [
+                    'filter' => [
+                        'bool' => [
+                            'filter' => [
+                                [
+                                    'terms' => ['categories' => ['shoes']],
+                                ],
+                                [
+                                    'terms' => ['values.size-option.<all_channels>.<all_locales>' => ['s']],
+                                ],
+                                [
+                                    'terms' => ['categories_of_parent' => ['shoes']],
+                                ],
+                                [
+                                    'terms' => ['attribute_for_this_level' => ['size']],
+                                ],
+                            ],
+                        ]
+                    ],
+                ],
+            ],
+        ];
+
+        $productsFound = $this->getSearchQueryResults($query);
+
+        $this->assertDocument(
+            $productsFound,
+            [
+                'model-running-shoes-s',
+            ]
+        );
     }
 
     public function testCategoryShoesAndColorWhite()
