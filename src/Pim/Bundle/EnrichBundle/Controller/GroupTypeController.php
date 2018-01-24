@@ -73,7 +73,7 @@ class GroupTypeController
      * @Template
      * @AclAncestor("pim_enrich_grouptype_index")
      *
-     * @return Response
+     * @return array
      */
     public function indexAction(Request $request)
     {
@@ -88,12 +88,12 @@ class GroupTypeController
      * @Template
      * @AclAncestor("pim_enrich_grouptype_create")
      *
-     * @return Response|RedirectResponse
+     * @return array|Response
      */
     public function createAction(Request $request)
     {
         if (!$request->isXmlHttpRequest()) {
-            return new RedirectResponse($this->router->generate('pim_enrich_grouptype_index'));
+            return new RedirectResponse('/');
         }
 
         $groupType = new GroupType();
@@ -123,10 +123,14 @@ class GroupTypeController
      * @Template
      * @AclAncestor("pim_enrich_grouptype_edit")
      *
-     * @return array
+     * @return array|RedirectResponse
      */
-    public function editAction(GroupType $groupType)
+    public function editAction(Request $request, GroupType $groupType)
     {
+        if (!$request->isXmlHttpRequest()) {
+            return new RedirectResponse('/');
+        }
+
         if ($this->groupTypeHandler->process($groupType)) {
             $this->request->getSession()->getFlashBag()->add('success', new Message('flash.group type.updated'));
         }
@@ -145,8 +149,12 @@ class GroupTypeController
      *
      * @return Response|RedirectResponse
      */
-    public function removeAction(GroupType $groupType)
+    public function removeAction(Request $request, GroupType $groupType)
     {
+        if (!$request->isXmlHttpRequest()) {
+            return new RedirectResponse('/');
+        }
+
         if ($groupType->isVariant()) {
             throw new DeleteException($this->translator->trans('flash.group type.cant remove variant'));
         } elseif (count($groupType->getGroups()) > 0) {

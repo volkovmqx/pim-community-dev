@@ -286,6 +286,10 @@ class AttributeController
      */
     public function createOptionAction(Request $request, $id, $dataLocale)
     {
+        if (!$request->isXmlHttpRequest()) {
+            return new RedirectResponse('/');
+        }
+
         $attribute = $this->findAttributeOr404($id);
         if (!$request->isXmlHttpRequest() || !in_array($attribute->getAttributeType(), $this->choiceAttributeTypes)) {
             return new RedirectResponse(
@@ -338,6 +342,10 @@ class AttributeController
      */
     public function removeAction(Request $request, $id)
     {
+        if (!$request->isXmlHttpRequest()) {
+            return new RedirectResponse('/');
+        }
+
         $attribute = $this->findAttributeOr404($id);
         $this->validateRemoval($attribute);
 

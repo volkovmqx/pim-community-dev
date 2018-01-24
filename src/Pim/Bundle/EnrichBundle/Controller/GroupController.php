@@ -88,7 +88,7 @@ class GroupController
      * @Template
      * @AclAncestor("pim_enrich_group_index")
      *
-     * @return Response
+     * @return array
      */
     public function indexAction()
     {
@@ -107,12 +107,12 @@ class GroupController
      * @Template
      * @AclAncestor("pim_enrich_group_create")
      *
-     * @return Response|RedirectResponse
+     * @return array|Response
      */
     public function createAction(Request $request)
     {
         if (!$request->isXmlHttpRequest()) {
-            return new RedirectResponse($this->router->generate('pim_enrich_group_index'));
+            return new RedirectResponse('/');
         }
 
         $group = $this->groupFactory->createGroup();
@@ -144,10 +144,14 @@ class GroupController
      * @Template
      * @AclAncestor("pim_enrich_group_edit")
      *
-     * @return array
+     * @return array|RedirectResponse
      */
-    public function editAction(Group $group)
+    public function editAction(Request $request, Group $group)
     {
+        if (!$request->isXmlHttpRequest()) {
+            return new RedirectResponse('/');
+        }
+
         if ($this->groupHandler->process($group)) {
             $this->request->getSession()->getFlashBag()->add('success', new Message('flash.group.updated'));
         }
@@ -169,8 +173,12 @@ class GroupController
      *
      * @return Response|RedirectResponse
      */
-    public function removeAction(Group $group)
+    public function removeAction(Request $request, Group $group)
     {
+        if (!$request->isXmlHttpRequest()) {
+            return new RedirectResponse('/');
+        }
+
         $this->groupRemover->remove($group);
 
         if ($this->request->isXmlHttpRequest()) {

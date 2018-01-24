@@ -20,6 +20,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -151,7 +152,7 @@ class FamilyController
      * @Template
      * @AclAncestor("pim_enrich_family_index")
      *
-     * @return Response
+     * @return array
      */
     public function indexAction()
     {
@@ -164,12 +165,12 @@ class FamilyController
      * @Template
      * @AclAncestor("pim_enrich_family_create")
      *
-     * @return array
+     * @return array|Response
      */
     public function createAction()
     {
         if (!$this->request->isXmlHttpRequest()) {
-            return new RedirectResponse($this->router->generate('pim_enrich_family_index'));
+            return new RedirectResponse('/');
         }
 
         $family = $this->familyFactory->create();
@@ -198,10 +199,14 @@ class FamilyController
      * @Template
      * @AclAncestor("pim_enrich_family_index")
      *
-     * @return array
+     * @return array|RedirectResponse
      */
     public function editAction($id)
     {
+        if (!$this->request->isXmlHttpRequest()) {
+            return new RedirectResponse('/');
+        }
+
         $family = $this->familyRepository->find($id);
 
         if (null === $family) {
@@ -253,10 +258,14 @@ class FamilyController
      *
      * @AclAncestor("pim_enrich_family_remove")
      *
-     * @return \Symfony\Component\HttpFoundation\Response|\Symfony\Component\HttpFoundation\RedirectResponse
+     * @return Response
      */
     public function removeAction($id)
     {
+        if (!$this->request->isXmlHttpRequest()) {
+            return new RedirectResponse('/');
+        }
+
         $family = $this->familyRepository->find($id);
 
         if (null === $family) {
@@ -279,10 +288,14 @@ class FamilyController
      *
      * @AclAncestor("pim_enrich_family_edit_attributes")
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      */
     public function addAttributesAction($id)
     {
+        if (!$this->request->isXmlHttpRequest()) {
+            return new RedirectResponse('/');
+        }
+
         $family = $this->familyRepository->find($id);
 
         if (null === $family) {
@@ -323,10 +336,14 @@ class FamilyController
      *
      * @throws DeleteException
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return Response
      */
     public function removeAttributeAction($familyId, $attributeId)
     {
+        if (!$this->request->isXmlHttpRequest()) {
+            return new RedirectResponse('/');
+        }
+
         $family = $this->familyRepository->find($familyId);
 
         if (null === $family) {
@@ -375,7 +392,7 @@ class FamilyController
      * @param array               $attributes          The attributes
      * @param AvailableAttributes $availableAttributes The available attributes container
      *
-     * @return \Symfony\Component\Form\Form
+     * @return FormInterface
      */
     protected function getAvailableAttributesForm(
         array $attributes = [],

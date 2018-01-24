@@ -87,7 +87,7 @@ class ChannelController
      * @Template
      * @AclAncestor("pim_enrich_channel_index")
      *
-     * @return Response
+     * @return array
      */
     public function indexAction()
     {
@@ -117,10 +117,14 @@ class ChannelController
      * @Template
      * @AclAncestor("pim_enrich_channel_edit")
      *
-     * @return array
+     * @return array|Response
      */
     public function editAction(Channel $channel)
     {
+//        if (!$this->request->isXmlHttpRequest()) {
+//            return new RedirectResponse('/');
+//        }
+
         if ($this->channelHandler->process($channel)) {
             $this->request->getSession()->getFlashBag()->add('success', new Message('flash.channel.saved'));
 
@@ -144,6 +148,10 @@ class ChannelController
      */
     public function removeAction(Request $request, Channel $channel)
     {
+//        if (!$request->isXmlHttpRequest()) {
+//            return new RedirectResponse('/');
+//        }
+
         // TODO This validation should be moved to a validator and that validation triggered by the remover
         $channelCount = $this->channelRepository->countAll();
         if ($channelCount <= 1) {
