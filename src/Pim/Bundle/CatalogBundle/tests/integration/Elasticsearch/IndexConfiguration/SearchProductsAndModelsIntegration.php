@@ -76,8 +76,18 @@ class SearchProductsAndModelsIntegration extends AbstractPimCatalogProductModelI
                             ],
                         ],
                         [
-                            'terms' => ['attributes_for_this_level' => ['description']],
-                        ],
+                            'bool' => [
+                                'must_not' => [
+                                    'bool' => [
+                                        'filter' => [
+                                            [
+                                                'terms' => ['attributes_of_parent' => ['description']],
+                                            ],
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
                     ],
                 ],
             ],
@@ -652,7 +662,7 @@ class SearchProductsAndModelsIntegration extends AbstractPimCatalogProductModelI
                 'constant_score' => [
                     'filter' => [
                         'bool' => [
-                            'filter' => [
+                            'filter'   => [
                                 [
                                     'terms' => ['categories' => ['shoes']],
                                 ],
@@ -660,13 +670,48 @@ class SearchProductsAndModelsIntegration extends AbstractPimCatalogProductModelI
                                     'terms' => ['values.size-option.<all_channels>.<all_locales>' => ['s']],
                                 ],
                                 [
-                                    'terms' => ['categories_of_parent' => ['shoes']],
-                                ],
-                                [
-                                    'terms' => ['attribute_for_this_level' => ['size']],
-                                ],
+                                    'bool' => [
+                                        'must_not' => [
+                                            'bool' => [
+                                                'filter' => [
+                                                    [
+                                                        'terms' => ['attributes_of_parent' => ['size']],
+                                                    ],
+                                                    [
+                                                        'terms' => ['categories_of_parent' => ['shoes']]
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+//                                [
+//                                    'bool' => [
+//                                        'should' => [
+//                                            [
+//                                                'bool' => [
+//                                                    'must_not' => [
+//                                                        [
+//                                                            'terms' => ['attributes_of_parent' => ['size']],
+//                                                        ],
+//                                                    ],
+//                                                ],
+//                                            ],
+//                                            [
+//                                                'bool' => [
+//                                                    'must_not' => [
+//                                                        [
+//                                                            'terms' => ['categories_of_parent' => ['shoes']]
+//                                                        ]
+//                                                    ],
+//                                                ],
+//                                            ],
+//
+//                                        ]
+//                                    ]
+//                                ]
                             ],
-                        ]
+                        ],
                     ],
                 ],
             ],

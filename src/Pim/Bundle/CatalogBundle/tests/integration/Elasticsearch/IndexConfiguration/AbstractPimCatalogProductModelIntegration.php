@@ -114,6 +114,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['description'],
+                'attributes_of_parent' => [],
+                'categories_of_parent' => [],
                 'parent'                    => null,
                 'ancestors'                 => [
                     'codes' => null,
@@ -142,6 +144,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['description', 'color', 'material'],
+                'attributes_of_parent' => [],
+                'categories_of_parent' => [],
                 'parent'                    => null,
                 'ancestors'                 => [
                     'codes' => null,
@@ -185,6 +189,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['description', 'color', 'material'],
+                'attributes_of_parent' => [],
+                'categories_of_parent' => [],
                 'parent'                    => null,
                 'ancestors'                 => [
                     'codes' => null,
@@ -223,6 +229,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['description', 'size', 'material'],
+                'attributes_of_parent' => [],
+                'categories_of_parent' => [],
                 'parent'                    => null,
                 'ancestors'                 => [
                     'codes' => null,
@@ -254,8 +262,6 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'document_type'             => ProductModelInterface::class,
                 'level'                     => 2,
                 'categories'                => ['shoes'],
-                'categories_of_parent'      => ['shoes'],
-                'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
                     'labels' => [
@@ -263,6 +269,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['description', 'material'],
+                'categories_of_parent'      => [],
+                'attributes_of_parent' => [],
                 'parent'                    => null,
                 'ancestors'                 => [
                     'codes' => null,
@@ -296,6 +304,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['description', 'color'],
+                'categories_of_parent'      => [],
+                'attributes_of_parent' => [],
                 'parent'                    => null,
                 'ancestors'                 => [
                     'codes' => null,
@@ -330,7 +340,9 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                         'fr_FR' => 'La famille des tshirts',
                     ],
                 ],
-                'attributes_for_this_level' => ['color', 'material'],
+                'attributes_for_this_level' => ['color', 'material', 'image'],
+                'categories_of_parent'      => [],
+                'attributes_of_parent' => ['description'],
                 'parent'                    => 'model-tshirt',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt'],
@@ -372,6 +384,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['color', 'material'],
+                'categories_of_parent'      => [],
+                'attributes_of_parent' => ['description'],
                 'parent'                    => 'model-tshirt',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt'],
@@ -413,6 +427,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['color', 'material'],
+                'categories_of_parent'      => [],
+                'attributes_of_parent' => ['description'],
                 'parent'                    => 'model-tshirt',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt'],
@@ -447,7 +463,6 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'document_type'             => ProductModelInterface::class,
                 'level'                     => 1,
                 'categories'                => ['shoes'],
-                'categories_for_this_level' => [],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -456,6 +471,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size'],
+                'categories_of_parent' => ['shoes'],
+                'attributes_of_parent' => ['description'],
                 'parent'                    => 'model-running-shoes',
                 'ancestors'                 => [
                     'codes' => ['model-running-shoes'],
@@ -481,7 +498,6 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'document_type'             => ProductModelInterface::class,
                 'level'                     => 1,
                 'categories'                => ['shoes'],
-                'categories_for_this_level' => [],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -490,6 +506,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size'],
+                'categories_of_parent' => ['shoes'],
+                'attributes_of_parent' => ['description'],
                 'parent'                    => 'model-running-shoes',
                 'ancestors'                 => [
                     'codes' => ['model-running-shoes'],
@@ -515,7 +533,6 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'document_type'             => ProductModelInterface::class,
                 'level'                     => 1,
                 'categories'                => ['shoes'],
-                'categories_for_this_level' => [],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -524,6 +541,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size'],
+                'categories_of_parent' => ['shoes'],
+                'attributes_of_parent' => ['description'],
                 'parent'                    => 'model-running-shoes',
                 'ancestors'                 => [
                     'codes' => ['model-running-shoes'],
@@ -557,6 +576,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['material'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['description'],
                 'parent'                    => 'model-biker-jacket',
                 'ancestors'                 => [
                     'codes' => ['model-biker-jacket'],
@@ -593,6 +614,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['material'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['description'],
                 'parent'                    => 'model-biker-jacket',
                 'ancestors'                 => [
                     'codes' => ['model-biker-jacket'],
@@ -632,6 +655,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size', 'weight'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['color', 'image', 'material'],
                 'parent'                    => 'model-tshirt-grey',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt', 'model-tshirt-grey'],
@@ -687,6 +712,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size', 'weight'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['color', 'image', 'material'],
                 'parent'                    => 'model-tshirt-grey',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt', 'model-tshirt-grey'],
@@ -742,6 +769,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size', 'weight'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['color', 'image', 'material'],
                 'parent'                    => 'model-tshirt-grey',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt', 'model-tshirt-grey'],
@@ -797,6 +826,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size', 'weight'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['color', 'image', 'material'],
                 'parent'                    => 'model-tshirt-grey',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt', 'model-tshirt-grey'],
@@ -853,6 +884,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size', 'weight'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['color', 'image', 'material'],
                 'parent'                    => 'model-tshirt-blue',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt', 'model-tshirt-blue'],
@@ -908,6 +941,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size', 'weight'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['color', 'image', 'material'],
                 'parent'                    => 'model-tshirt-blue',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt', 'model-tshirt-blue'],
@@ -963,6 +998,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size', 'weight'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['color', 'image', 'material'],
                 'parent'                    => 'model-tshirt-blue',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt', 'model-tshirt-blue'],
@@ -1018,6 +1055,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size', 'weight'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['color', 'image', 'material'],
                 'parent'                    => 'model-tshirt-blue',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt', 'model-tshirt-blue'],
@@ -1074,6 +1113,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size', 'weight'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['color', 'image', 'material'],
                 'parent'                    => 'model-tshirt-red',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt', 'model-tshirt-red'],
@@ -1129,6 +1170,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size', 'weight'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['color', 'image', 'material'],
                 'parent'                    => 'model-tshirt-red',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt', 'model-tshirt-red'],
@@ -1184,6 +1227,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size', 'weight'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['color', 'image', 'material'],
                 'parent'                    => 'model-tshirt-red',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt', 'model-tshirt-red'],
@@ -1239,6 +1284,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size', 'weight'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['color', 'image', 'material'],
                 'parent'                    => 'model-tshirt-red',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt', 'model-tshirt-red'],
@@ -1296,6 +1343,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['description', 'color', 'material'],
                 'parent'                    => 'model-tshirt-unique-color',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt-unique-color'],
@@ -1341,6 +1390,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['description', 'color', 'material'],
                 'parent'                    => 'model-tshirt-unique-color',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt-unique-color'],
@@ -1386,6 +1437,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['description', 'color', 'material'],
                 'parent'                    => 'model-tshirt-unique-color',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt-unique-color'],
@@ -1431,6 +1484,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['description', 'color', 'material'],
                 'parent'                    => 'model-tshirt-unique-color',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt-unique-color'],
@@ -1478,6 +1533,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['description', 'color'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => [],
                 'parent'                    => null,
                 'ancestors'                 => [
                     'codes' => null,
@@ -1510,6 +1567,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size', 'weight'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['description', 'color', 'material'],
                 'parent'                    => 'model-hat',
                 'ancestors'                 => [
                     'codes' => ['model-hat'],
@@ -1560,6 +1619,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size', 'weight'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['description', 'color', 'material'],
                 'parent'                    => 'model-hat',
                 'ancestors'                 => [
                     'codes' => ['model-hat'],
@@ -1613,6 +1674,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['color'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['description', 'size'],
                 'parent'                    => 'model-tshirt-unique-size',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt-unique-size'],
@@ -1660,6 +1723,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['color'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['description', 'size'],
                 'parent'                    => 'model-tshirt-unique-size',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt-unique-size'],
@@ -1707,6 +1772,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['color'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['description', 'size'],
                 'parent'                    => 'model-tshirt-unique-size',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt-unique-size'],
@@ -1747,7 +1814,6 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'identifier'                => 'running-shoes-s-white',
                 'document_type'             => ProductInterface::class,
                 'categories'                => ['shoes', 'men', 'women'],
-                'categories_for_this_level' => ['men', 'women'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -1756,6 +1822,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['color'],
+                'categories_of_parent' => ['shoes'],
+                'attributes_of_parent' => ['size'],
                 'parent'                    => 'model-tshirt-running-shoes-s',
                 'ancestors'                 => [
                     'codes' => ['model-running-shoes', 'model-running-shoes-s'],
@@ -1790,7 +1858,6 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'identifier'                => 'running-shoes-s-blue',
                 'document_type'             => ProductInterface::class,
                 'categories'                => ['shoes', 'men'],
-                'categories_for_this_level' => ['men'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -1799,6 +1866,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['color'],
+                'categories_of_parent' => ['shoes'],
+                'attributes_of_parent' => ['size'],
                 'parent'                    => 'model-tshirt-running-shoes-s',
                 'ancestors'                 => [
                     'codes' => ['model-running-shoes', 'model-running-shoes-s'],
@@ -1833,7 +1902,6 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'identifier'                => 'running-shoes-s-red',
                 'document_type'             => ProductInterface::class,
                 'categories'                => ['shoes', 'women'],
-                'categories_for_this_level' => ['women'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -1842,6 +1910,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['color'],
+                'categories_of_parent' => ['shoes'],
+                'attributes_of_parent' => ['size'],
                 'parent'                    => 'model-tshirt-running-shoes-s',
                 'ancestors'                 => [
                     'codes' => ['model-tshirt-running-shoes', 'model-tshirt-running-shoes-s'],
@@ -1876,7 +1946,6 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'identifier'                => 'running-shoes-m-white',
                 'document_type'             => ProductInterface::class,
                 'categories'                => ['shoes', 'men', 'women'],
-                'categories_for_this_level' => ['men', 'women'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -1885,6 +1954,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['color'],
+                'categories_of_parent' => ['shoes'],
+                'attributes_of_parent' => ['size'],
                 'parent'                    => 'model-tshirt-running-shoes-m',
                 'ancestors'                 => [
                     'codes' => ['model-running-shoes', 'model-running-shoes-m'],
@@ -1919,7 +1990,6 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'identifier'                => 'running-shoes-m-blue',
                 'document_type'             => ProductInterface::class,
                 'categories'                => ['shoes', 'men'],
-                'categories_for_this_level' => ['men'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -1928,6 +1998,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['color'],
+                'categories_of_parent' => ['shoes'],
+                'attributes_of_parent' => ['size'],
                 'parent'                    => 'model-tshirt-running-shoes-m',
                 'ancestors'                 => [
                     'codes' => ['model-running-shoes', 'model-running-shoes-m'],
@@ -1962,7 +2034,6 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'identifier'                => 'running-shoes-m-red',
                 'document_type'             => ProductInterface::class,
                 'categories'                => ['shoes', 'women'],
-                'categories_for_this_level' => ['women'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -1971,6 +2042,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['color'],
+                'categories_of_parent' => ['shoes'],
+                'attributes_of_parent' => ['size'],
                 'parent'                    => 'model-tshirt-running-shoes-m',
                 'ancestors'                 => [
                     'codes' => ['model-running-shoes', 'model-running-shoes-m'],
@@ -2005,7 +2078,6 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'identifier'                => 'running-shoes-l-white',
                 'document_type'             => ProductInterface::class,
                 'categories'                => ['shoes', 'men', 'women'],
-                'categories_for_this_level' => ['men', 'women'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -2014,6 +2086,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['color'],
+                'categories_of_parent' => ['shoes'],
+                'attributes_of_parent' => ['size'],
                 'parent'                    => 'model-tshirt-running-shoes-l',
                 'ancestors'                 => [
                     'codes' => ['model-running-shoes', 'model-running-shoes-l'],
@@ -2048,7 +2122,6 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'identifier'                => 'running-shoes-l-blue',
                 'document_type'             => ProductInterface::class,
                 'categories'                => ['shoes', 'men'],
-                'categories_for_this_level' => ['men'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -2057,6 +2130,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['color'],
+                'categories_of_parent' => ['shoes'],
+                'attributes_of_parent' => ['size'],
                 'parent'                    => 'model-tshirt-running-shoes-l',
                 'ancestors'                 => [
                     'codes' => ['model-running-shoes', 'model-running-shoes-l'],
@@ -2091,7 +2166,6 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                 'identifier'                => 'running-shoes-l-red',
                 'document_type'             => ProductInterface::class,
                 'categories'                => ['shoes', 'women'],
-                'categories_for_this_level' => ['women'],
                 'family_variant'            => 'shoes_size_color',
                 'family'                    => [
                     'code'   => 'shoes',
@@ -2100,6 +2174,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['color'],
+                'categories_of_parent' => ['shoes'],
+                'attributes_of_parent' => ['size'],
                 'parent'                    => 'model-tshirt-running-shoes-l',
                 'ancestors'                 => [
                     'codes' => ['model-running-shoes', 'model-running-shoes-l'],
@@ -2142,6 +2218,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['material', 'color'],
                 'parent'                    => 'model-biker-jacket-leather',
                 'ancestors'                 => [
                     'codes' => ['model-biker-jacket', 'model-biker-jacket-leather'],
@@ -2182,6 +2260,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['material', 'color'],
                 'parent'                    => 'model-biker-jacket-leather',
                 'ancestors'                 => [
                     'codes' => ['model-biker-jacket', 'model-biker-jacket-leather'],
@@ -2222,6 +2302,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['material', 'color'],
                 'parent'                    => 'model-biker-jacket-leather',
                 'ancestors'                 => [
                     'codes' => ['model-biker-jacket', 'model-biker-jacket-leather'],
@@ -2263,6 +2345,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['material', 'color'],
                 'parent'                    => 'model-biker-jacket-polyester',
                 'ancestors'                 => [
                     'codes' => ['model-biker-jacket', 'model-biker-jacket-polyester'],
@@ -2303,6 +2387,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['material', 'color'],
                 'parent'                    => 'model-biker-jacket-polyester',
                 'ancestors'                 => [
                     'codes' => ['model-biker-jacket', 'model-biker-jacket-polyester'],
@@ -2343,6 +2429,8 @@ abstract class AbstractPimCatalogProductModelIntegration extends AbstractPimCata
                     ],
                 ],
                 'attributes_for_this_level' => ['size'],
+                'categories_of_parent' => [],
+                'attributes_of_parent' => ['material', 'color'],
                 'parent'                    => 'model-biker-jacket-polyester',
                 'ancestors'                 => [
                     'codes' => ['model-biker-jacket', 'model-biker-jacket-polyester'],
