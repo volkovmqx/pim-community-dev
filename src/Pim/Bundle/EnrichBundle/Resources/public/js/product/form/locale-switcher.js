@@ -28,7 +28,7 @@ define(
             template: _.template(template),
             className: 'AknDropdown AknButtonList-item locale-switcher',
             events: {
-                'click [data-locale]': 'changeLocale'
+                'click li a': 'changeLocale'
             },
             displayInline: false,
             displayLabel: true,
@@ -104,8 +104,6 @@ define(
              * @param {Object} event
              */
             changeLocale: function (event) {
-                this.$el.dropdown('toggle');
-
                 this.getRoot().trigger('pim_enrich:form:locale_switcher:change', {
                     localeCode: event.currentTarget.dataset.locale,
                     context: this.config.context
